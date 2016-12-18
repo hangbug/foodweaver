@@ -1,0 +1,69 @@
+{
+  "name": "recipes",
+  "version": "1.0.0",
+  "description": "this is a spa web application ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": " nodemon ./server/server.js --exec babel-node --presets es2015"
+  },
+  "author": "hang zhang",
+  "license": "ISC",
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-cli": "^6.16.0",
+    "babel-core": "^6.17.0",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-2": "^6.17.0",
+    "babelify": "^7.3.0",
+    "body-parser": "^1.15.2",
+    "browser-logger": "^1.0.0",
+    "browserify": "^13.1.0",
+    "grunt": "^1.0.1",
+    "grunt-babel": "^6.0.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-browserify": "^0.5.1",
+    "gulp-clean-css": "^2.0.13",
+    "gulp-concat": "^2.6.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.7",
+    "load-grunt-tasks": "^3.5.2",
+    "nodemon": "^1.11.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "axios": "^0.15.2",
+    "bluebird": "^3.4.6",
+    "body-parser": "^1.15.2",
+    "classnames": "^2.2.5",
+    "connect-redis": "^3.1.0",
+    "envify": "^3.4.1",
+    "express": "^4.14.0",
+    "express-session": "^1.14.2",
+    "http-proxy": "^1.15.1",
+    "lodash": "^4.16.6",
+    "mongoose": "^4.6.6",
+    "react": "^15.3.2",
+    "react-bootstrap": "^0.30.7",
+    "react-dom": "^15.3.2",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.8.1",
+    "react-router-redux": "^4.0.6",
+    "redis": "^2.6.3",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.1.0",
+    "router": "^1.1.4",
+    "shortid": "^2.2.6",
+    "validator": "^6.1.0"
+  },
+  "browserify": {
+    "transform": [
+      "envify"
+    ]
+  }
+}
