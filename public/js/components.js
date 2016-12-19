@@ -1036,6 +1036,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var CommentsForm = _react2.default.createClass({
     displayName: 'CommentsForm',
     renderComment: function renderComment(comment, i) {
+        var commentDate = new Date(comment.comment_date);
         return _react2.default.createElement(
             'div',
             { className: 'comment-items-wrap', key: i },
@@ -1051,7 +1052,7 @@ var CommentsForm = _react2.default.createClass({
                 _react2.default.createElement(
                     'span',
                     { className: 'comment-date' },
-                    comment.comment_date
+                    commentDate.toUTCString()
                 )
             )
         );
@@ -1167,7 +1168,7 @@ var ContactForm = _react2.default.createClass({
                     _react2.default.createElement(
                         "li",
                         null,
-                        "Development on Web application using  HTML5, CSS3, SCSS,Responsive Design"
+                        "Development on Web application using  HTML5, CSS3, SASS,Responsive Design"
                     ),
                     _react2.default.createElement(
                         "li",

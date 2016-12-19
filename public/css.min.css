@@ -127,11 +127,11 @@ header .navbar-default {
     width: auto;
     height: 280px; }
     .logo-session .site-title img {
-      filter: blur(10px);
-      -webkit-filter: blur(10px);
-      -moz-filter: blur(10px);
-      -o-filter: blur(10px);
-      -ms-filter: blur(10px); }
+      filter: blur(3px);
+      -webkit-filter: blur(3px);
+      -moz-filter: blur(3px);
+      -o-filter: blur(3px);
+      -ms-filter: blur(3px); }
 
 .menu-nav {
   margin-bottom: 0px !important;
@@ -409,7 +409,7 @@ footer {
     font-weight: bold; }
   .postDetail-container .block-post-main .description p {
     letter-spacing: -0.5px;
-    font-size: 15px; }
+    font-size: 18px; }
   .postDetail-container .block-post-main .post-description {
     min-height: 220px;
     overflow: hidden;
@@ -433,7 +433,7 @@ footer {
           padding: 5px 0px;
           border-bottom: 1px #e6e6e6 solid;
           font-size: 16px;
-          line-height: 24px; }
+          line-height: 15px; }
     .postDetail-container .block-post-main .post-description .post-steps {
       padding: 0; }
       .postDetail-container .block-post-main .post-description .post-steps h3 {
@@ -453,7 +453,7 @@ footer {
           word-break: break-all;
           counter-increment: step-counter;
           font-size: 16px;
-          line-height: 24px; }
+          line-height: 30px; }
         .postDetail-container .block-post-main .post-description .post-steps .steps li::before {
           content: counter(step-counter);
           margin-right: 5px;

@@ -10,12 +10,13 @@ import {uploadComment} from './../../actions/commentActions';
 
 const CommentsForm=React.createClass({
     renderComment(comment,i){
+        let commentDate = new Date(comment.comment_date);
         return(
             <div className="comment-items-wrap" key={i}>
                 <div className="comment-item" >
                     <strong className="author">{'@'+comment.author}</strong>
                     {comment.text}
-                    <span className="comment-date">{comment.comment_date}</span>
+                    <span className="comment-date">{commentDate.toUTCString()}</span>
                 </div>
             </div>
         )
