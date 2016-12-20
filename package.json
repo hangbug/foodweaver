@@ -42,6 +42,7 @@
     "body-parser": "^1.15.2",
     "classnames": "^2.2.5",
     "connect-redis": "^3.1.0",
+    "crypto": "0.0.3",
     "envify": "^3.4.1",
     "express": "^4.14.0",
     "express-session": "^1.14.2",

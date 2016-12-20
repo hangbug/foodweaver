@@ -5,7 +5,7 @@ import express from 'express';
 import Validator from 'validator';
 import isEmpty from 'lodash/isEmpty';
 import user from '../models/users';
-//import bcrypt from 'bcrypt';
+import crypto from 'crypto';
 let router=express.Router();
 
 function validateInput(data){
@@ -49,8 +49,11 @@ router.post('/',(req,res)=>{
         })
         if(isEmpty(errors)){
             const {username,email,password}=data;
-            //const password_digest=bcrypt.hashSync(password,10);
-            return user.create({username:username,email:email,password:password})
+            const secret = 'hangbug';
+            let hash = crypto.createCipher('aes192', secret);
+            let crypted = hash.update(password,'utf8','hex');
+            crypted += hash.final('hex');
+            return user.create({username:username,email:email,password:crypted})
                     .then(()=>{
                         return user.findOne({username:username});
                     })
