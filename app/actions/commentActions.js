@@ -11,7 +11,7 @@ export function setComments(data) {//set the comments reducer
     }
 }
 export function loadComments(postId) {//load comments from server
-    return axios.get('http://52.91.32.102:9000/api/comments/'+postId);
+    return axios.get('/api/comments/'+postId);
 }
 
 export function addComment(author,comment){//add comment to reducer

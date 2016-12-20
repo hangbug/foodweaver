@@ -13,7 +13,7 @@ function setSelectPost(post) {
 export function selectPost(postId){
     return dispatch=>{
         const commentId=postId;
-        return axios.get('http://52.91.32.102:9000/post/'+postId).then((res)=>{
+        return axios.get('/post/'+postId).then((res)=>{
                     return dispatch(setSelectPost(res.data));
                 }).then(()=>{
                     return loadComments(commentId);
