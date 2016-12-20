@@ -4,8 +4,8 @@
 import React from 'react';
 import PostGrid from './PostGrid'
 import {connect} from 'react-redux';
-import LoadMore from './loadmore';
 import LogoSession from './LogoSession';
+import LoadMore from './LoadMore';
 
 const AllPosts=React.createClass({
     render(){

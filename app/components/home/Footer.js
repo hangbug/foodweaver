@@ -6,13 +6,13 @@ import React from 'react';
 const Footer=React.createClass({
     render(){
         return(
-            <footer>
-                <p className="foot-content">
-                    @2016 foodweaver.
-                    <br/>
-                    All Rights Reserved.
-                </p>
-            </footer>
+                <footer>
+                    <p className="foot-content">
+                        @2016 foodweaver.
+                        <br/>
+                        All Rights Reserved.
+                    </p>
+                </footer>
         );
     }
 });

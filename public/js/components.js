@@ -1010,7 +1010,7 @@ function mapStateToProps(state) {
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(CategoryPosts);
 
-},{"../home/LogoSession":28,"./../home/PostGrid":31,"react":611,"react-redux":364}],22:[function(require,module,exports){
+},{"../home/LogoSession":29,"./../home/PostGrid":32,"react":611,"react-redux":364}],22:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1218,13 +1218,13 @@ var _PostGrid2 = _interopRequireDefault(_PostGrid);
 
 var _reactRedux = require('react-redux');
 
-var _loadmore = require('./loadmore');
-
-var _loadmore2 = _interopRequireDefault(_loadmore);
-
 var _LogoSession = require('./LogoSession');
 
 var _LogoSession2 = _interopRequireDefault(_LogoSession);
+
+var _LoadMore = require('./LoadMore');
+
+var _LoadMore2 = _interopRequireDefault(_LoadMore);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1236,7 +1236,7 @@ var AllPosts = _react2.default.createClass({
             { className: 'content-wrap' },
             _react2.default.createElement(_LogoSession2.default, null),
             _react2.default.createElement(_PostGrid2.default, { posts: this.props.posts }),
-            _react2.default.createElement(_loadmore2.default, null)
+            _react2.default.createElement(_LoadMore2.default, null)
         );
     }
 }); /**
@@ -1251,7 +1251,7 @@ function mapStateToProps(state) {
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(AllPosts);
 
-},{"./LogoSession":28,"./PostGrid":31,"./loadmore":32,"react":611,"react-redux":364}],25:[function(require,module,exports){
+},{"./LoadMore":28,"./LogoSession":29,"./PostGrid":32,"react":611,"react-redux":364}],25:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1316,7 +1316,7 @@ var Header = _react2.default.createClass({
 });
 exports.default = Header;
 
-},{"./Navbars":29,"react":611}],27:[function(require,module,exports){
+},{"./Navbars":30,"react":611}],27:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1354,6 +1354,70 @@ var Home = _react2.default.createClass({
 exports.default = Home;
 
 },{"./Footer":25,"./Header":26,"react":611}],28:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _redux = require('redux');
+
+var _loadMore = require('./../../actions/loadMore');
+
+var _reactRedux = require('react-redux');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * Created by HANG on 11/16/2016.
+ */
+var LoadMore = _react2.default.createClass({
+    displayName: 'LoadMore',
+    getInitialState: function getInitialState() {
+        return {
+            count: 1
+        };
+    },
+    showMore: function showMore(e) {
+        var _this = this;
+
+        e.preventDefault();
+        return this.props.loadMore(this.state.count).then(function () {
+            _this.setState({ count: _this.state.count + 1 });
+        }).catch(function (e) {
+            console.log(e);
+        });
+    },
+    render: function render() {
+        var loadMore = _react2.default.createElement(
+            'a',
+            { className: 'clicker', onClick: this.showMore },
+            'Load more'
+        );
+        return _react2.default.createElement(
+            'div',
+            { className: 'load-more' },
+            this.props.showLoadMore.show ? loadMore : _react2.default.createElement('div', null)
+        );
+    }
+});
+function mapStateToProps(state) {
+    return {
+        showLoadMore: state.loadMore
+    };
+}
+function mapDispatchToProps(dispatch) {
+    return (0, _redux.bindActionCreators)({
+        loadMore: _loadMore.loadMore
+    }, dispatch);
+}
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(LoadMore);
+
+},{"./../../actions/loadMore":5,"react":611,"react-redux":364,"redux":618}],29:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1480,7 +1544,7 @@ function mapDispatchToProps(dispatch) {
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(LogoSession);
 
-},{"../../actions/requestCategory":8,"react":611,"react-redux":364,"redux":618}],29:[function(require,module,exports){
+},{"../../actions/requestCategory":8,"react":611,"react-redux":364,"redux":618}],30:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1666,7 +1730,7 @@ function mapDispatchToProps(dispatch) {
 }
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Navbars);
 
-},{"../../actions/logout":7,"../../actions/searchAction":10,"react":611,"react-redux":364,"react-router":409,"redux":618}],30:[function(require,module,exports){
+},{"../../actions/logout":7,"../../actions/searchAction":10,"react":611,"react-redux":364,"react-router":409,"redux":618}],31:[function(require,module,exports){
 /**
  * Created by HANG on 10/15/2016.
  */
@@ -1898,7 +1962,7 @@ function mapDispatchToProps(dispatch) {
 }
 exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps)(Post);
 
-},{"../modal/LoginFormModal":33,"../modal/SignupFormModal":34,"./../../actions/decrementLikes":3,"./../../actions/incrementLikes":4,"./../../actions/saveActions":9,"react":611,"react-bootstrap":331,"react-redux":364,"react-router":409,"redux":618}],31:[function(require,module,exports){
+},{"../modal/LoginFormModal":33,"../modal/SignupFormModal":34,"./../../actions/decrementLikes":3,"./../../actions/incrementLikes":4,"./../../actions/saveActions":9,"react":611,"react-bootstrap":331,"react-redux":364,"react-router":409,"redux":618}],32:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1939,71 +2003,7 @@ var PostGrid = _react2.default.createClass({
 
 exports.default = PostGrid;
 
-},{"./Post":30,"react":611}],32:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _redux = require('redux');
-
-var _loadMore = require('./../../actions/loadMore');
-
-var _reactRedux = require('react-redux');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/**
- * Created by HANG on 11/16/2016.
- */
-var LoadMore = _react2.default.createClass({
-    displayName: 'LoadMore',
-    getInitialState: function getInitialState() {
-        return {
-            count: 1
-        };
-    },
-    showMore: function showMore(e) {
-        var _this = this;
-
-        e.preventDefault();
-        this.props.loadMore(this.state.count).then(function () {
-            _this.setState({ count: _this.state.count++ });
-        }).catch(function (e) {
-            console.log(e);
-        });
-    },
-    render: function render() {
-        var loadMore = _react2.default.createElement(
-            'a',
-            { className: 'clicker', onClick: this.showMore },
-            'Load more'
-        );
-        return _react2.default.createElement(
-            'div',
-            { className: 'load-more' },
-            this.props.showLoadMore.show ? loadMore : _react2.default.createElement('div', null)
-        );
-    }
-});
-function mapStateToProps(state) {
-    return {
-        showLoadMore: state.loadMore
-    };
-}
-function mapDispatchToProps(dispatch) {
-    return (0, _redux.bindActionCreators)({
-        loadMore: _loadMore.loadMore
-    }, dispatch);
-}
-exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(LoadMore);
-
-},{"./../../actions/loadMore":5,"react":611,"react-redux":364,"redux":618}],33:[function(require,module,exports){
+},{"./Post":31,"react":611}],33:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2664,7 +2664,7 @@ function mapDispatchToProps(dispatch) {
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(SearchPage);
 
-},{"../../actions/searchAction":10,"../home/PostGrid":31,"react":611,"react-redux":364,"redux":618}],37:[function(require,module,exports){
+},{"../../actions/searchAction":10,"../home/PostGrid":32,"react":611,"react-redux":364,"redux":618}],37:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

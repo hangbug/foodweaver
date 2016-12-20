@@ -14,8 +14,8 @@ const LoadMore=React.createClass({
     },
     showMore(e){
         e.preventDefault();
-        this.props.loadMore(this.state.count).then(()=>{
-           this.setState({count:this.state.count++});
+        return this.props.loadMore(this.state.count).then(()=>{
+           this.setState({count:this.state.count+1});
         }).catch((e)=>{
             console.log(e);
         })
