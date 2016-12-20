@@ -87,7 +87,7 @@ function setComments(data) {
 }
 function loadComments(postId) {
     //load comments from server
-    return _axios2.default.get('http://localhost:3000/api/comments/' + postId);
+    return _axios2.default.get('http://52.91.32.102:9000/api/comments/' + postId);
 }
 
 function addComment(author, comment) {
@@ -422,7 +422,7 @@ function setSelectPost(post) {
 function selectPost(postId) {
     return function (dispatch) {
         var commentId = postId;
-        return _axios2.default.get('http://localhost:3000/post/' + postId).then(function (res) {
+        return _axios2.default.get('http://52.91.32.102:9000/post/' + postId).then(function (res) {
             return dispatch(setSelectPost(res.data));
         }).then(function () {
             return (0, _commentActions.loadComments)(commentId);

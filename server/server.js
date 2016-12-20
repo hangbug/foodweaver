@@ -27,13 +27,13 @@ import users from './models/users';
 import redis from 'redis';
 
 
-const client = redis.createClient(6379,'localhost');
+const client = redis.createClient(6379,'52.91.32.102');
 bluebird.promisifyAll(redis.RedisClient.prototype);
 bluebird.promisifyAll(redis.Multi.prototype);
 
 const redisStore=connectRedis(session);
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/recipe').catch((e)=>{
+mongoose.connect('mongodb://52.91.32.102:27017/recipe').catch((e)=>{
     throw e;
 });
 
@@ -43,7 +43,7 @@ app.use(bodyParser.json());
 app.use(session({
     secret:'hshfsbfajsfsfsfb',
     store:new redisStore({
-        host:'localhost',
+        host:'52.91.32.102',
         port:6379,
         client: client,
         ttl :  60*60*24*30
@@ -59,14 +59,6 @@ app.use('/api/auth',auth);//authentication
 app.use('/api/category',find);//use to search the categories on homepage navbars
 app.use('/api/loadMore',loadMore);//load more data from server
 
-
-
-app.use('/app',(req,res)=>{
-    posts.create({title: "Chemex Coffee",display_src:"http://www.recipe.com/images/indian-spiced-chicken-thighs-1-ss.jpg",description: "Make a cup of chemex category, the proper way"}).catch((e)=>{
-        console.log(e);
-    });
-    res.end()
-});
 
 // get all bookmarks for user from server
 app.put('/bookmark',authenticate,(req,res)=>{
@@ -327,7 +319,7 @@ app.use('/',(req, res) => {
         }
     });
 });
-app.listen(3000, () => {
+app.listen(9000, () => {
     console.log("We've now got a server!");
-    console.log("Your routes will be running on http://localhost:3000");
+    console.log("Your routes will be running on http://52.91.32.102:9000");
 });
